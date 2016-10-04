@@ -63,7 +63,7 @@ void Archivo:: deleteAlumniInFile(FILE *file){
 
 }
 
-//verify the content
+//verify the content later
 void Archivo:: modifyAlumniInFile(FILE *file){
 
     int alumniIndexToSearch;
