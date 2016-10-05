@@ -1,30 +1,29 @@
 #include "alumno.h"
+#include "archivo.h"
 #include <iostream>
-#include <QString>
-#include <QCoreApplication>
-#include <QDebug>
 #include <cstdio>
 
 using namespace std;
 
-
+//---- first constructor
 Alumno::Alumno(
         int alumniID,
-        QString alumniName,
-        float alumniGrade)
+        char* alumniName,
+        float alumniGrade,
+        int alumniPosition)
     {
         this->alumniID = alumniID;
-        this->alumniName = alumniName.toLatin1().data();
+        this->alumniName = alumniName;
         this->alumniGrade = alumniGrade;
+        this->alumniPosition = alumniPosition;
     }
 
+//---- second constructor
 Alumno::Alumno(){
 }
 
+//---- destructor
 Alumno::~Alumno(){
-
-    //cout << "El objeto alumno ha sido destruido" << endl;
-
 }
 
 int Alumno:: getAlumniID(){
@@ -39,16 +38,27 @@ float Alumno:: getAlumniGrade(){
     return alumniGrade;
 }
 
+int Alumno:: getAlumniPosition(){
+    return alumniPosition;
+}
+
 void Alumno:: setAlumniID(int newAlumniID){
     alumniID = newAlumniID;
 }
 
-void Alumno:: setAlumniName(QString newAlumniName){
+void Alumno:: setAlumniName(char* newAlumniName){
 
-    QByteArray array = newAlumniName.toLocal8Bit();
-    //string fname = newAlumniName.toStdString();
-    //strcmp( alumniName, fname.c_str());
-    alumniName = array.data();
+    size_t newAlumNameLen = strlen(newAlumniName);
+
+    bool isValidLength = newAlumNameLen > 0;
+    bool isNewLine = newAlumniName[newAlumNameLen-1] == '\n';
+
+    if ( isValidLength && isNewLine ) {
+        //removes the last character ("\n")
+        newAlumniName[--newAlumNameLen] = '\0';
+    }
+
+    alumniName = newAlumniName;
 
 }
 

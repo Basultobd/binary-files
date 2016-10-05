@@ -1,7 +1,6 @@
 #include <QCoreApplication>
 #include <iostream>
 #include <cstdio>
-
 #include "alumno.h"
 #include "archivo.h"
 
@@ -14,16 +13,16 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    //abre para lectura y escritura, binario
+    //opened for write and lecture. Binary file
     FILE *file;
     file = fopen("fseek.txt","w+b");
 
     if (file == NULL) {
-        cout << "No se pudo abrir el archivo." << endl;
+        cout << "Error opening the file" << endl;
         exit(1);
     }
 
-    //----- Initializa the information in file
+    //----- Initialize the information in file
     Archivo newFile;
     newFile.initialize(file);
 
@@ -37,17 +36,19 @@ int main(int argc, char *argv[])
                 "1-Modify a register \n"
                 "2-Search a register \n"
                 "3-Delete a register \n"
-                "4-Print register \n"
+                "4-Print all registers \n"
                 "0-Exit\n"
                 "option: ";
 
         cin >> option;
 
+        cout << "\n";
+
         fflush(stdin);
 
         switch(option){
             case 0:
-                cout << "Saliendo del sistema!\n" << endl;
+                cout << "Leaving on the system!\n" << endl;
                 exit(1);
             case 1:
                 newFile.modifyAlumniInFile(file);

@@ -1,6 +1,7 @@
 #ifndef ARCHIVO_H
 #define ARCHIVO_H
 #include <cstdio>
+#include <QString>
 
 
 class Archivo{
@@ -8,7 +9,7 @@ class Archivo{
 public:
 
     const int MAX_NUM_REGISTER = 10;
-    FILE *file;
+    const int MAX_NAME_LEN = 50;
     Archivo();
     void initialize(FILE *file);
     void searchAlumniInFile(FILE *file);

@@ -9,13 +9,15 @@ class Alumno{
 public:
 
     int alumniID; // min value 1 - max value 10
-    char* alumniName;
+    char* alumniName; //Suggest not to use QString
     float alumniGrade; // min value 0.0 - max value 100.0
+    int alumniPosition;
+
 
     /** Methods declaration */
 
     //---- First constructor
-    Alumno(int alumniID, QString alumniName, float alumniGrade);
+    Alumno(int alumniID, char* alumniName, float alumniGrade, int alumniPosition);
 
     //---- Second constructor
     Alumno();
@@ -27,11 +29,13 @@ public:
     int getAlumniID();
     char* getAlumniName();
     float getAlumniGrade();
+    int getAlumniPosition();
 
     //---- setters
     void setAlumniID(int newAlumniID);
-    void setAlumniName(QString newAlumniName);
+    void setAlumniName(char* newAlumniName);
     void setAlumniGrade(float newAlumnGrade);
+
 
 };
 
