@@ -42,27 +42,27 @@ int Alumno:: getAlumniPosition(){
     return alumniPosition;
 }
 
-void Alumno:: setAlumniID(int newAlumniID){
+void Alumno:: setAlumniID( int newAlumniID ){
     alumniID = newAlumniID;
 }
 
-void Alumno:: setAlumniName(char* newAlumniName){
+void Alumno:: setAlumniName( char* newAlumniName ){
 
-    size_t newAlumNameLen = strlen(newAlumniName);
+    size_t newAlumNameLen = strlen( newAlumniName );
 
     bool isValidLength = newAlumNameLen > 0;
-    bool isNewLine = newAlumniName[newAlumNameLen-1] == '\n';
+    bool isNewLine = newAlumniName[ newAlumNameLen-1 ] == '\n';
 
     if ( isValidLength && isNewLine ) {
         //removes the last character ("\n")
-        newAlumniName[--newAlumNameLen] = '\0';
+        newAlumniName[ --newAlumNameLen ] = '\0';
     }
 
     alumniName = newAlumniName;
 
 }
 
-void Alumno:: setAlumniGrade(float newAlumniGrade){
+void Alumno:: setAlumniGrade( float newAlumniGrade ){
     alumniGrade = newAlumniGrade;
 }
 
