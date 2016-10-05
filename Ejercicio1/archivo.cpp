@@ -2,6 +2,8 @@
 #include "alumno.h"
 #include <iostream>
 #include <cstdio>
+#include <QString>
+#include <QTextStream>
 
 using namespace std;
 
@@ -55,11 +57,9 @@ void Archivo:: deleteAlumniInFile(FILE *file){
     fseek(file,sizeof(Alumno)*alumniIndexToSearch, SEEK_SET); //from the begining
     fread(&newAlumni,sizeof(Alumno),1,file);
 
-    newAlumni.alumniID = -1;
+    newAlumni.setAlumniID(-1);
     fseek(file,sizeof(Alumno)*alumniIndexToSearch, SEEK_SET); //from the begining
     fwrite(&newAlumni,sizeof(Alumno),1,file);
-
-    printAlumniFile(file);
 
 }
 
@@ -77,11 +77,30 @@ void Archivo:: modifyAlumniInFile(FILE *file){
     fseek(file,sizeof(Alumno)*alumniIndexToSearch, SEEK_SET); //from the begining
     fread(&newAlumni,sizeof(Alumno),1,file);
 
-    newAlumni.alumniID = -1;
+    //---- Modify all the information of the alumni
+
+    int newID;
+    cout << "Write a new ID: ";
+    cin >> newID;
+    newAlumni.setAlumniID(newID);
+
+    fflush(stdin);
+
+    QTextStream input(stdin);
+    cout << "Write a new name: ";
+    QString newName = input.readLine();
+    newAlumni.setAlumniName(newName);
+
+    fflush(stdin);
+
+    float newGrade;
+    cout << "Write a new grade: ";
+    cin >> newGrade;
+    newAlumni.setAlumniGrade(newGrade);
+
     fseek(file,sizeof(Alumno)*alumniIndexToSearch, SEEK_SET); //from the begining
     fwrite(&newAlumni,sizeof(Alumno),1,file);
 
-    printAlumniFile(file);
 }
 
 void Archivo::printAlumniFile(FILE *file){

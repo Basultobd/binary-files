@@ -33,11 +33,14 @@ int main(int argc, char *argv[])
 
     while(badOption!=goodOption){
 
-        cout << "Seleccione una opcion \n"
-                "1-Escribir \n"
-                "2-Leer \n"
-                "3-Borrar \n"
-                "Ingrese 0 para salir\n" << endl;
+        cout << "Choose one option \n"
+                "1-Modify a register \n"
+                "2-Search a register \n"
+                "3-Delete a register \n"
+                "4-Print register \n"
+                "0-Exit\n"
+                "option: ";
+
         cin >> option;
 
         fflush(stdin);
@@ -47,16 +50,23 @@ int main(int argc, char *argv[])
                 cout << "Saliendo del sistema!\n" << endl;
                 exit(1);
             case 1:
-                //newFile.modifyAlumniInFile(file);
+                newFile.modifyAlumniInFile(file);
+                cout << "\n";
                 break;
             case 2:
                 newFile.searchAlumniInFile(file);
+                cout << "\n";
                 break;
             case 3:
                 newFile.deleteAlumniInFile(file);
+                cout << "\n";
+                break;
+            case 4:
+                newFile.printAlumniFile(file);
+                cout << "\n";
                 break;
             default:
-                printf("Opcion no valida!\n");
+                printf("Invalid option!\n");
             }
     }
 

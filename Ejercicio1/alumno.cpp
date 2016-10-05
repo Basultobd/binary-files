@@ -1,6 +1,8 @@
 #include "alumno.h"
 #include <iostream>
 #include <QString>
+#include <QCoreApplication>
+#include <QDebug>
 #include <cstdio>
 
 using namespace std;
@@ -29,7 +31,7 @@ int Alumno:: getAlumniID(){
     return alumniID;
 }
 
-const char *Alumno::getAlumniName(){
+char *Alumno::getAlumniName(){
     return alumniName;
 }
 
@@ -41,8 +43,13 @@ void Alumno:: setAlumniID(int newAlumniID){
     alumniID = newAlumniID;
 }
 
-void Alumno:: setAlumniName(const char* newAlumniName){
-    alumniName = newAlumniName;
+void Alumno:: setAlumniName(QString newAlumniName){
+
+    QByteArray array = newAlumniName.toLocal8Bit();
+    //string fname = newAlumniName.toStdString();
+    //strcmp( alumniName, fname.c_str());
+    alumniName = array.data();
+
 }
 
 void Alumno:: setAlumniGrade(float newAlumniGrade){

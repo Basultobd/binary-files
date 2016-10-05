@@ -9,7 +9,7 @@ class Alumno{
 public:
 
     int alumniID; // min value 1 - max value 10
-    const char *alumniName;
+    char* alumniName;
     float alumniGrade; // min value 0.0 - max value 100.0
 
     /** Methods declaration */
@@ -25,12 +25,12 @@ public:
 
     //---- getters
     int getAlumniID();
-    const char* getAlumniName();
+    char* getAlumniName();
     float getAlumniGrade();
 
     //---- setters
     void setAlumniID(int newAlumniID);
-    void setAlumniName(const char* newAlumniName);
+    void setAlumniName(QString newAlumniName);
     void setAlumniGrade(float newAlumnGrade);
 
 };
