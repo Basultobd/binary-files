@@ -22,7 +22,7 @@ void Archivo::initialize(FILE *file){
 void Archivo:: searchAlumniInFile( FILE *file ){
 
     int alumniIndexToSearch;
-    cout << "write a number between 1 and 10: ";
+    cout << "write a number between 1 and 10: " << endl;
     cin >> alumniIndexToSearch;
     cout << "\n";
 
@@ -46,7 +46,7 @@ void Archivo:: searchAlumniInFile( FILE *file ){
 void Archivo:: deleteAlumniInFile( FILE *file ){
 
     int alumniIndexToSearch;
-    cout << "write a number between 1 and 10: ";
+    cout << "write a number between 1 and 10: " << endl;
     cin >> alumniIndexToSearch;
 
     //Beacuse the index begin in 0
@@ -66,7 +66,7 @@ void Archivo:: deleteAlumniInFile( FILE *file ){
 void Archivo:: modifyAlumniInFile( FILE *file ){
 
     int alumniIndexToSearch;
-    cout << "write a number between 1 and 10: ";
+    cout << "write a number between 1 and 10: " << endl;
     cin >> alumniIndexToSearch;
 
     //Beacuse the index begin in 0
