@@ -24,7 +24,7 @@ void Archivo::initialize(FILE *file){
 void Archivo:: searchAlumniInFile( FILE *file ){
 
     int alumniIndexToSearch;
-    cout << "write a number between 1 and 10: " << endl;
+    cout << "write a number between 1 and 10: ";
     cin >> alumniIndexToSearch;
     cout << "\n";
 
@@ -42,7 +42,7 @@ void Archivo:: searchAlumniInFile( FILE *file ){
         cout << "Alumni ID: " << newAlumni.getAlumniID() << endl;
         cout << "Alumni Name: " << newAlumni.getAlumniName() << endl;
         printf("Alumni Grade: %.2f \n", newAlumni.getAlumniGrade());
-        cout << "Alumni Position: " << newAlumni.getAlumniPosition();
+        cout << "Alumni Position: " << newAlumni.getAlumniPosition() << endl;
     }
 }
 
